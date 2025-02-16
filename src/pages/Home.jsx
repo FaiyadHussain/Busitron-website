@@ -156,7 +156,7 @@ const Home = () => {
         {/* Text Content */}
         <div className="relative text-center text-white px-6 z-10">
           <h1 ref={textRef} className="text-7xl font-bold mb-4">
-            Welcome to{" "}
+            Welcome To{" "}
             <span className="bg-gradient-to-r from-[#df3482] to-[#4B0082] text-transparent bg-clip-text">
               BUSITRON
             </span>
