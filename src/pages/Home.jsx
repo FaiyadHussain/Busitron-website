@@ -155,14 +155,14 @@ const Home = () => {
 
         {/* Text Content */}
         <div className="relative text-center text-white px-6 z-10">
-        <h1 ref={textRef} className="text-4xl sm:text-5xl  md:text-6xl lg:text-7xl font-bold mb-4 flex flex-col items-center">
-  Welcome To 
-  <span className="bg-gradient-to-r pt-4 from-[#df3482] to-[#4B0082] text-transparent bg-clip-text">
+        <h1 ref={textRef} className="text-4xl sm:text-5xl  md:text-6xl lg:text-7xl font-bold mb-4  items-center">
+  Welcome To  {}
+  <span className="bg-gradient-to-r pt-10 from-[#df3482] to-[#4B0082] text-transparent bg-clip-text">
     BUSITRON
   </span>
 </h1>
 
-          <p ref={taglineRef} className="text-2xl">{taglines[taglineIndex]}</p>
+          <p ref={taglineRef} className="text-2xl sm:text-3xl md:text-4xl">{taglines[taglineIndex]}</p>
         </div>
       </div>
 
