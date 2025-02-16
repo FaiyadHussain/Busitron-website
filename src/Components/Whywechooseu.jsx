@@ -29,7 +29,7 @@ const WhyChooseUs = () => {
 
       {/* Title Section */}
       <div className="flex flex-col items-center relative z-10 mb-10">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white uppercase tracking-wide">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white uppercase tracking-wide">
          WHAT WE DO
         </h2>
         <div className="w-20 h-1 bg-yellow-500 mt-3"></div>
