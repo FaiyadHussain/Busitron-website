@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { FaLightbulb, FaUsers, FaLock, FaChartBar } from "react-icons/fa";
 import "../App.css";
 
 const WhyChooseUs = () => {
   const sectionRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -14,33 +15,34 @@ const WhyChooseUs = () => {
     );
   }, []);
 
+  const handleClick = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
-    <div className="relative py-20 bg-gradient-to-b from-black via-gray-900 to-black text-center overflow-hidden">
-      {/* Background Animated Lines */}
+    <div className="relative py-16 bg-gradient-to-b from-black via-gray-900 to-black text-center overflow-hidden">
+      {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-70"></div>
         <div className="absolute top-0 left-0 w-full h-full animate-lines pointer-events-none"></div>
       </div>
 
-      {/* Title with Decorative Lines */}
-      <div className="flex items-center justify-center relative z-10 mb-10">
-        <div className="h-1 w-24 bg-yellow-500 hidden md:block"></div>
-        <h2 className="text-5xl font-extrabold text-white mx-6 uppercase tracking-wide">
+      {/* Title Section */}
+      <div className="flex flex-col items-center relative z-10 mb-10">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white uppercase tracking-wide">
           Why Choose Us?
         </h2>
-        <div className="h-1 w-24 bg-yellow-500 hidden md:block"></div>
+        <div className="w-20 h-1 bg-yellow-500 mt-3"></div>
       </div>
 
-      <p className="text-lg text-gray-300 max-w-3xl mx-auto relative z-10 mb-14 leading-relaxed">
-        We provide cutting-edge business networking solutions that empower brands 
-        to **grow, connect, and innovate**. Our platform fosters collaboration, 
-        security, and exponential success.
+      <p className="text-md sm:text-lg text-gray-300 max-w-2xl mx-auto relative z-10 mb-10 px-4">
+        We provide cutting-edge business networking solutions that empower brands to <strong>grow, connect, and innovate</strong>. Our platform fosters collaboration, security, and exponential success.
       </p>
 
       {/* Feature Cards */}
       <div
         ref={sectionRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto relative z-10"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-6 relative z-10"
       >
         {[
           {
@@ -66,23 +68,24 @@ const WhyChooseUs = () => {
         ].map((feature, index) => (
           <div
             key={index}
-            className="group relative p-8 bg-gray-900 rounded-xl shadow-xl border border-gray-700 flex flex-col items-center text-center overflow-hidden cursor-pointer 
-            transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
+            className={`group relative p-6 sm:p-8 bg-gray-900 rounded-xl shadow-lg border border-gray-700 flex flex-col items-center text-center overflow-hidden cursor-pointer 
+            transition-all duration-500 hover:scale-105 hover:shadow-xl ${activeIndex === index ? "scale-105 shadow-xl" : ""}`}
+            onClick={() => handleClick(index)}
           >
-            {/* Icon with 3D Hover & Glow Effect */}
-            <div className="text-yellow-500 text-7xl w-24 h-24 mb-5 transition-all duration-500 
-              group-hover:blur-sm group-hover:scale-110 group-hover:text-yellow-400">
+            {/* Icon */}
+            <div className={`text-yellow-500 text-6xl sm:text-7xl w-20 sm:w-24 h-20 sm:h-24 mb-4 transition-all duration-500 
+              group-hover:blur-sm group-hover:scale-110 group-hover:text-yellow-400 ${activeIndex === index ? "blur-sm scale-110 text-yellow-400" : ""}`}>
               {feature.icon}
             </div>
 
-            {/* Hidden Details - Shown on Hover with Glassmorphism Effect */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-80 
-              backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <p className="text-lg font-semibold px-6">{feature.text}</p>
+            {/* Hidden Details (Glassmorphism) */}
+            <div className={`absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-80 
+              backdrop-blur-md text-white transition-opacity duration-500 p-4 ${activeIndex === index ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+              <p className="text-base sm:text-lg font-semibold">{feature.text}</p>
             </div>
 
-            {/* Title with Dynamic Animation */}
-            <h3 className="text-2xl font-bold text-white transition-all duration-500 group-hover:text-yellow-500 group-hover:text-3xl">
+            {/* Title */}
+            <h3 className={`text-xl sm:text-2xl font-bold text-white transition-all duration-500 group-hover:text-yellow-500 ${activeIndex === index ? "text-yellow-500" : ""}`}>
               {feature.title}
             </h3>
           </div>
