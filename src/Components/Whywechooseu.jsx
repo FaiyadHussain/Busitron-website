@@ -30,13 +30,13 @@ const WhyChooseUs = () => {
       {/* Title Section */}
       <div className="flex flex-col items-center relative z-10 mb-10">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white uppercase tracking-wide">
-          Why Choose Us?
+         WHAT WE DO
         </h2>
         <div className="w-20 h-1 bg-yellow-500 mt-3"></div>
       </div>
 
-      <p className="text-md sm:text-lg text-gray-300 max-w-2xl mx-auto relative z-10 mb-10 px-4">
-        We provide cutting-edge business networking solutions that empower brands to <strong>grow, connect, and innovate</strong>. Our platform fosters collaboration, security, and exponential success.
+      <p className="text-md font-semibold sm:text-lg text-gray-300 max-w-4xl mx-auto relative z-10 mb-10 px-4">
+      At Busitron, our mission is to connect businesses, foster collaboration, and drive growth through an innovative networking platform. We understand the power of strong connections and the impact they can have on your business's success. That's why we've developed a platform that brings together businesses of all sizes, industries, and backgrounds
       </p>
 
       {/* Feature Cards */}

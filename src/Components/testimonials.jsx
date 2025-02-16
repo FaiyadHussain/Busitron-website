@@ -42,14 +42,15 @@ const testimonials = [
 
 const Testimonials = () => {
   const [index, setIndex] = useState(0);
+  const isMobile = window.innerWidth < 768; // Detect mobile view
 
   const nextSlide = () => {
-    setIndex((prevIndex) => (prevIndex + 3) % testimonials.length);
+    setIndex((prevIndex) => (prevIndex + (isMobile ? 1 : 3)) % testimonials.length);
   };
 
   const prevSlide = () => {
-    setIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 3 : prevIndex - 3
+    setIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - (isMobile ? 1 : 3) : prevIndex - (isMobile ? 1 : 3)
     );
   };
 
@@ -90,7 +91,7 @@ const Testimonials = () => {
                 transition={{ duration: 0.5 }}
                 className="grid grid-cols-1 md:grid-cols-3 gap-8"
               >
-                {testimonials.slice(index, index + 3).map((testimonial, idx) => (
+                {testimonials.slice(index, index + (isMobile ? 1 : 3)).map((testimonial, idx) => (
                   <motion.div
                     key={idx}
                     className="relative bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700 
@@ -107,8 +108,8 @@ const Testimonials = () => {
                     <h3 className="text-2xl font-semibold">{testimonial.name}</h3>
                     <p className="text-yellow-400 text-sm mb-4">{testimonial.role}</p>
 
-                    {/* Feedback (Hidden on Hover) */}
-                    <p className="text-gray-300 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                    {/* Feedback */}
+                    <p className="text-gray-300 opacity-100 transition-opacity duration-300">
                       "{testimonial.feedback}"
                     </p>
                   </motion.div>
