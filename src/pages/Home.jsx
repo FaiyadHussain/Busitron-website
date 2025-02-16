@@ -144,8 +144,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <div className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
+    <div className="overflow-x-hidden">
+      <div className="relative max-w-svw min-h-screen flex items-center justify-center bg-black overflow-hidden">
         {/* Three.js Particle System */}
         <div ref={threeContainerRef} className="absolute inset-0 z-0"></div>
 
