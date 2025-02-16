@@ -162,7 +162,7 @@ const Home = () => {
   </span>
 </h1>
 
-          <p ref={taglineRef} className="text-2xl  pt-6 sm:text-3xl md:text-2xl">{taglines[taglineIndex]}</p>
+          <p ref={taglineRef} className="text-xl  pt-6 sm:text-3xl md:text-2xl">{taglines[taglineIndex]}</p>
         </div>
       </div>
 
