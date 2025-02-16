@@ -7,11 +7,11 @@ import AboutBusitron from "../Components/AboutBusitron";
 import Testimonials from "../Components/testimonials";
 import Statistics from "../Components/Statistics";
 import Team from "../Components/Team";
-import Collaborations from "../Components/Collaborations";
 import TechnologiesUsed from "../Components/TechnologiesUsed";
 
 const Home = () => {
   const textRef = useRef(null);
+  const taglineRef = useRef(null);
   const [taglineIndex, setTaglineIndex] = useState(0);
   const threeContainerRef = useRef(null);
 
@@ -22,24 +22,34 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    // Text Animation
+    // "Welcome to BUSITRON" animation
     gsap.fromTo(
       textRef.current,
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }
     );
 
-    // Changing Taglines Automatically
+    // Tagline animation
     const interval = setInterval(() => {
-      setTaglineIndex((prevIndex) => (prevIndex + 1) % taglines.length);
-      gsap.fromTo(
-        textRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-      );
+      gsap.to(taglineRef.current, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        onComplete: () => {
+          setTaglineIndex((prevIndex) => (prevIndex + 1) % taglines.length);
+          gsap.fromTo(
+            taglineRef.current,
+            { opacity: 0, y: -20 },
+            { opacity: 1, y: 0, duration: 0.5 }
+          );
+        },
+      });
     }, 4000); // Change every 4 seconds
 
-    // Three.js Floating Particle System
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
     let scene, camera, renderer, particles;
 
     const initThreeJS = () => {
@@ -108,12 +118,10 @@ const Home = () => {
       animate();
     };
 
-    // Initialize Three.js only if the container is available
     if (threeContainerRef.current) {
       initThreeJS();
     }
 
-    // Handle Resize
     const handleResize = () => {
       if (camera && renderer) {
         camera.aspect = window.innerWidth / window.innerHeight;
@@ -123,12 +131,8 @@ const Home = () => {
     };
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
     return () => {
-      clearInterval(interval);
       window.removeEventListener("resize", handleResize);
-
-      // Clean up Three.js resources
       if (threeContainerRef.current && renderer) {
         threeContainerRef.current.removeChild(renderer.domElement);
       }
@@ -150,14 +154,14 @@ const Home = () => {
         <div ref={threeContainerRef} className="absolute inset-0 z-0"></div>
 
         {/* Text Content */}
-        <div ref={textRef} className="relative text-center text-white px-6 z-10">
-        <h1 className="text-7xl font-bold mb-4">
-  Welcome to{" "}
-  <span className="bg-gradient-to-r from-[#df3482] to-[#4B0082] text-transparent bg-clip-text">
-    BUSITRON
-  </span>
-</h1>
-          <p className="text-2xl">{taglines[taglineIndex]}</p>
+        <div className="relative text-center text-white px-6 z-10">
+          <h1 ref={textRef} className="text-7xl font-bold mb-4">
+            Welcome to{" "}
+            <span className="bg-gradient-to-r from-[#df3482] to-[#4B0082] text-transparent bg-clip-text">
+              BUSITRON
+            </span>
+          </h1>
+          <p ref={taglineRef} className="text-2xl">{taglines[taglineIndex]}</p>
         </div>
       </div>
 
@@ -166,8 +170,7 @@ const Home = () => {
       <AboutBusitron />
       <Testimonials />
       <Statistics />
-      <TechnologiesUsed/>
-      {/* <Collaborations/> */}
+      <TechnologiesUsed />
       <Team />
     </div>
   );
