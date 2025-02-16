@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const navLinks = [
@@ -10,26 +10,31 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="bg-black shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 text-white">
-            <NavLink to="/" className="text-2xl font-bold">
+            <NavLink
+              to="/"
+              className="bg-gradient-to-r from-[#df3482] font-bold text-2xl to-[#4B0082] text-transparent bg-clip-text"
+            >
               BUSITRON
             </NavLink>
           </div>
 
-          {/* Nav Links */}
+          {/* Desktop Nav Links */}
           <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-white hover:text-blue-500 text-lg font-bold px-4 py-2 rounded-md ${
-                    isActive ? "bg-yellow-500 text-black" : ""
+                  `text-white text-lg font-bold px-4 py-2 rounded-md ${
+                    isActive ? "bg-[#df3482]" : ""
                   }`
                 }
               >
@@ -40,38 +45,61 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button className="text-gray-800 hover:text-blue-500 focus:outline-none">
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
-              </svg>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white hover:text-gray-400 focus:outline-none"
+            >
+              {isOpen ? (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  ></path>
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu (Hidden by default) */}
-      <div className="md:hidden hidden">
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {/* Mobile Menu */}
+      <div className={`md:hidden ${isOpen ? "block" : "hidden"} bg-black`}>
+        <div className="px-4 pt-2 pb-3 space-y-2">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `block text-gray-800 hover:text-blue-500 px-4 py-2 rounded-md ${
-                  isActive ? "bg-yellow-500 text-black" : ""
+                `block px-4 py-2 rounded-md transition duration-300 ${
+                  isActive
+                    ? "bg-[#df3482] text-white"
+                    : "text-white hover:bg-[#4B0082]"
                 }`
               }
+              onClick={() => setIsOpen(false)} // Close menu on click
             >
               {link.name}
             </NavLink>

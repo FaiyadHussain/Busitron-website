@@ -1,40 +1,66 @@
-import React from "react";
+import { motion } from "framer-motion";
 
-const techStack = [
-  { id: 1, name: "React.js", src: "https://wallpapercave.com/wp/wp2465923.jpg" },
-  { id: 2, name: "Node.js", src: "/images/nodejs.png" },
-  { id: 3, name: "Express.js", src: "/images/express.png" },
-  { id: 4, name: "MongoDB", src: "/images/mongodb.png" },
-  { id: 5, name: "JavaScript", src: "/images/javascript.png" },
-  { id: 6, name: "Redux", src: "/images/redux.png" },
-  { id: 7, name: "Tailwind CSS", src: "/images/tailwindcss.png" },
-  { id: 8, name: "HTML5", src: "/images/html5.png" },
-  { id: 9, name: "CSS3", src: "/images/css3.png" },
-  { id: 10, name: "PostgreSQL", src: "/images/postgresql.png" },
-  { id: 11, name: "GitHub", src: "/images/github.png" },
-  { id: 12, name: "Docker", src: "/images/docker.png" },
-];
+export default function TechLogos() {
+  const technologies = [
+    { name: "HTML", img: "https://wallpapercave.com/wp/wp10869912.jpg" },
+    { name: "CSS", img: "https://wallpapercave.com/wp/wp14445334.png" },
+    { name: "JavaScript", img: "https://wallpapercave.com/wp/wp12454867.png" },
+    { name: "Tailwind CSS", img: "https://wallpapercave.com/wp/wp13639446.jpg" },
+    { name: "React", img: "https://wallpapercave.com/wp/wp2465923.jpg" },
+    { name: "Next.js", img: "https://wallpapercave.com/wp/wp11846997.png" },
+    { name: "Node.js", img: "https://wallpapercave.com/wp/wp4923978.jpg" },
+    { name: "Express.js", img: "https://icon.icepanel.io/Technology/svg/Express.svg" },
+    { name: "MongoDB", img: "https://wallpapercave.com/wp/wp8725088.jpg" },
+  ];
 
-const TechnologiesUsed = () => {
   return (
-    <div className="py-16 px-6 bg-gray-950">
-      <h2 className="text-center text-4xl font-extrabold text-white mb-12 tracking-wide">
-        Technologies We Use
-      </h2>
+    <div className="relative bg-black text-white py-20 px-6 lg:px-24 flex flex-col items-center overflow-hidden">
+      {/* Background Parallax Effect */}
+      <motion.div
+        className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&w=600')] bg-cover bg-fixed opacity-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.2 }}
+        transition={{ duration: 1.5 }}
+      />
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-12 place-items-center">
-        {techStack.map((tech) => (
-          <div
-            key={tech.id}
-            className="p-4 w-36 h-36 flex flex-col items-center justify-center bg-gray-900 rounded-2xl transition-transform duration-300 hover:scale-105"
+      {/* Heading */}
+      <motion.h2 
+        className="text-4xl font-bold text-center mb-12 uppercase tracking-wide relative z-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        Technologies We Use
+      </motion.h2>
+
+      {/* Logo Grid */}
+      <motion.div 
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-10 justify-items-center relative z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        {technologies.map((tech, index) => (
+          <motion.div 
+            key={index} 
+            className="flex flex-col items-center transition-transform transform hover:scale-110 hover:shadow-[0_0_20px_#00f0ff] rounded-2xl p-4 bg-gray-900 bg-opacity-60 backdrop-blur-md shadow-lg"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
           >
-            <img src={tech.src} alt={tech.name} className="w-16 h-16 object-contain" />
-            <p className="text-white text-sm mt-3 font-semibold">{tech.name}</p>
-          </div>
+            <div className="w-28 h-28 rounded-xl overflow-hidden border-4 border-gray-700 shadow-md">
+              <img
+                src={tech.img}
+                alt={tech.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="text-sm font-medium mt-3 text-gray-300 uppercase tracking-wider">
+              {tech.name}
+            </p>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
-};
-
-export default TechnologiesUsed;
+}

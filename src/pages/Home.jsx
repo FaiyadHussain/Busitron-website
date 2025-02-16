@@ -151,9 +151,12 @@ const Home = () => {
 
         {/* Text Content */}
         <div ref={textRef} className="relative text-center text-white px-6 z-10">
-          <h1 className="text-7xl font-bold mb-4">
-            Welcome to <span className="text-yellow-400">BUSITRON</span>
-          </h1>
+        <h1 className="text-7xl font-bold mb-4">
+  Welcome to{" "}
+  <span className="bg-gradient-to-r from-[#df3482] to-[#4B0082] text-transparent bg-clip-text">
+    BUSITRON
+  </span>
+</h1>
           <p className="text-2xl">{taglines[taglineIndex]}</p>
         </div>
       </div>
@@ -164,7 +167,7 @@ const Home = () => {
       <Testimonials />
       <Statistics />
       <TechnologiesUsed/>
-      <Collaborations/>
+      {/* <Collaborations/> */}
       <Team />
     </div>
   );

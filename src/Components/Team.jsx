@@ -1,34 +1,87 @@
+import React from "react";
 import { motion } from "framer-motion";
 
 const team = [
-  { name: "Alice Brown", role: "CEO", image: "/team1.jpg" },
-  { name: "Mike Johnson", role: "CTO", image: "/team2.jpg" },
-  { name: "Sara Lee", role: "Head of Design", image: "/team3.jpg" },
-  { name: "John Doe", role: "Marketing Lead", image: "/team4.jpg" },
+  {
+    name: "Andy",
+    role: "Solutions Designer",
+    image: "/team1.jpg",
+    description:
+      "Andrew leads the design and development team to deliver cutting edge solutions.",
+  },
+  {
+    name: "Sateesh",
+    role: "Lead Front End Developer",
+    image: "/team2.jpg",
+    description:
+      "Sateesh guides our design team in the delivery of cutting edge solutions.",
+  },
+  {
+    name: "Ramesh",
+    role: "CFO",
+    image: "/team3.jpg",
+    description: "Ramesh is our resident number man.",
+  },
+  {
+    name: "Pranay",
+    role: "Project & Operations Manager",
+    image: "/team4.jpg",
+    description:
+      "Pranay ensures our seamless operations and successful project deliveries.",
+  },
+  {
+    name: "Akhila",
+    role: "HR Manager",
+    image: "/team5.jpg",
+    description:
+      "Akhila cultivates a positive work environment and prioritizes the well-being of our team.",
+  },
 ];
 
 const Team = () => {
   return (
-    <div className="bg-black py-16 px-6">
-      <h2 className="text-4xl font-bold text-white text-center mb-10">Meet Our Team</h2>
+    <div className="relative bg-black text-white py-16 px-6 flex flex-col items-center overflow-hidden">
+      {/* Animated Gradient Background */}
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: "100%" }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-black opacity-40 z-0"
+      ></motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      {/* Animated Background Pattern */}
+      <motion.div
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.1 }}
+        transition={{ duration: 5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+        className="absolute inset-0 bg-[url('/background-pattern.png')] bg-cover opacity-10 z-0"
+      ></motion.div>
+
+      <div className="relative flex items-center justify-center w-full mb-10">
+        <div className="h-1 w-20 bg-red-500"></div>
+        <h2 className="text-3xl font-bold mx-4">Highly Qualified Team</h2>
+        <div className="h-1 w-20 bg-red-500"></div>
+      </div>
+      <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {team.map((member, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            whileHover={{ scale: 1.05, boxShadow: "0px 4px 20px rgba(255, 255, 0, 0.5)" }}
-            className="bg-gray-800 text-white rounded-xl p-6 text-center shadow-lg border border-gray-700"
+            viewport={{ once: true }}
+            className="flex flex-col items-center text-center p-6 relative bg-gray-900 rounded-lg shadow-lg z-10"
           >
-            <img
-              src={member.image}
-              className="w-32 h-32 rounded-full mx-auto border-4 border-yellow-500"
-              alt={member.name}
-            />
-            <h3 className="text-xl font-semibold mt-4">{member.name}</h3>
-            <p className="text-yellow-400 text-sm">{member.role}</p>
+            <div className="relative mb-4">
+              <img
+                src={member.image}
+                className="w-28 h-28 rounded-full object-cover border-4 border-gray-500 shadow-md"
+                alt={member.name}
+              />
+            </div>
+            <h3 className="text-lg font-bold text-white">{member.name}</h3>
+            <p className="text-yellow-500 text-sm font-medium">{member.role}</p>
+            <p className="text-gray-300 mt-2 text-sm">{member.description}</p>
           </motion.div>
         ))}
       </div>

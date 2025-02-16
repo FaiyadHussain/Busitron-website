@@ -3,9 +3,9 @@ import { FaEnvelope, FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from "react
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-10 px-6">
-        <hr className="border-t border-gray-700 mb-8"/>
+      <hr className="border-t border-gray-700 mb-8" />
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-        
+
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
@@ -33,7 +33,7 @@ const Footer = () => {
           <input 
             type="email" 
             placeholder="Enter your email" 
-            className="w-full px-3 py-2 rounded-md text-gray-900 outline-none"
+            className="w-full px-3 py-2 rounded-md bg-white text-black placeholder-gray-500 outline-none"
           />
           <button className="bg-yellow-500 text-gray-900 px-4 py-2 rounded-md mt-3 hover:bg-yellow-400 w-full">
             SUBSCRIBE
@@ -55,7 +55,7 @@ const Footer = () => {
 
       {/* Footer Bottom Text */}
       <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-400 text-sm">
-        © 2023 All Rights Reserved By <span className="text-yellow-400">BUSITRON</span>
+        © 2023 All Rights Reserved By <span className="bg-gradient-to-r from-[#df3482] to-[#4B0082] text-transparent bg-clip-text">BUSITRON</span>
       </div>
     </footer>
   );

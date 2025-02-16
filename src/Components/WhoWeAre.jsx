@@ -1,63 +1,113 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const WhoWeAre = () => {
   return (
     <section className="bg-black py-16 px-6 lg:px-20">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-        {/* Left - Image with Overlay Effect */}
+      <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        
+        {/* Left - Content */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative lg:w-1/2"
-        >
-          <img
-            src="https://img.freepik.com/free-photo/new-vision_1098-16178.jpg?t=st=1739611400~exp=1739615000~hmac=22551a1a1a57470613ace05d0d3e2fa0b3e6428306b47cf979209f5d1f495363&w=1060"
-            alt="Team Collaboration"
-            className="w-full rounded-lg shadow-lg"
-          />
-          <div className="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
-        </motion.div>
-
-        {/* Right - Content */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="lg:w-1/2 text-center lg:text-left"
         >
-          <h2 className="text-4xl font-bold text-white mb-4 relative">
-            WHO WE ARE?{" "}
-            <span className="absolute left-1 bottom-0 w-16 h-1 bg-yellow-500"></span>
+          <h2 className="text-5xl font-extrabold text-white mb-6 relative inline-block leading-tight">
+            WHO WE ARE?
+            <span className="block w-20 h-1 bg-yellow-500 mt-3"></span>
           </h2>
-          <p className="text-white text-lg leading-relaxed">
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-white text-2xl leading-relaxed"
+          >
             At <b>Busitron</b>, we are more than just a networking platform; we are a
             community of forward-thinking businesses and professionals driven by
             a shared vision of growth, collaboration, and innovation.
-          </p>
-          <p className="text-white text-lg mt-4">
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white text-2xl mt-6"
+          >
             Our journey began with a vision to bridge gaps, spark collaborations,
             and transform business networking. Today, we empower entrepreneurs,
             startups, and enterprises to create meaningful partnerships.
-          </p>
-          <p className="text-white text-lg mt-4">
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-white text-2xl mt-6"
+          >
             At Busitron, our mission is to connect businesses, foster collaboration, 
             and drive growth through an innovative networking platform. We understand 
             the power of strong connections and the impact they can have on your 
-            business's success. That's why we've developed a platform that brings 
-            together businesses of all sizes, industries, and backgrounds.
-          </p>
+            business's success.
+          </motion.p>
 
           {/* Read More Button */}
+          <Link to="/about">
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.07 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-6 px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition-all"
+            transition={{ duration: 0.2 }}
+            className="mt-8 px-8 py-4 bg-yellow-500 text-black text-xl font-bold rounded-xl shadow-lg hover:bg-yellow-600 transition-all"
           >
             Read More
           </motion.button>
+       
+          </Link>
+          </motion.div>
+        {/* Right - Image Frame */}
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="relative lg:w-1/2 flex justify-center"
+        >
+          <div className="relative w-full max-w-lg rounded-3xl border-4 border-white overflow-hidden shadow-lg">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
+              alt="Busitron Network"
+              className="w-full h-[550px] object-cover"
+            />
+            <div className="absolute inset-0 bg-black opacity-20 rounded-3xl"></div>
+
+            {/* Animated Text Over Image */}
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="absolute bottom-12 left-0 right-0 text-center"
+            >
+              <h3 className="text-5xl font-bold text-white mb-4">
+                Building Tomorrow's
+              </h3>
+              <div className="relative inline-block">
+                <span className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
+                  Connections
+                </span>
+                <div className="absolute -bottom-2 left-0 right-0 h-2 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full" />
+              </div>
+            </motion.div>
+
+          </div>
         </motion.div>
+
       </div>
     </section>
   );
