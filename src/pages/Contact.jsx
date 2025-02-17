@@ -86,7 +86,7 @@ const ContactUs = () => {
             Other Ways to Reach Us
           </h2>
           <ul className="mt-4 text-gray-300 space-y-2">
-            <li>📍 Address: 123 Business Avenue, Hyderabad, India</li>
+            <li>📍 4-Floor, HITEC City, plot no 14d 1, Jai Hind Gandhi Rd, Madhapur, Hyderabad, Telangana 500081</li>
             <li>📧 Email: support@busitron.com</li>
             <li>📞 Phone: +91 98765 43210</li>
           </ul>

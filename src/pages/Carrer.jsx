@@ -23,7 +23,7 @@ const Career = () => {
           {/* MERN Stack Developer - Fresher */}
           <div className="bg-gray-900 p-8 rounded-lg shadow-lg border-l-8 border-blue-500">
             <h3 className="text-2xl font-semibold text-white">MERN Stack Developer (Fresher)</h3>
-            <p className="text-gray-400 mt-2">📍 Location: Remote | 🕒 Full-time</p>
+            <p className="text-gray-400 mt-2">📍 Location: Hyderabad | 🕒 Full-time</p>
             <p className="text-gray-300 mt-4 leading-relaxed">
               We are looking for <span className="text-blue-400 font-semibold">freshers</span> with a strong understanding of 
               <span className="text-blue-400 font-semibold"> MongoDB, Express.js, React.js, and Node.js (MERN)</span>. 
@@ -40,7 +40,7 @@ const Career = () => {
           {/* MERN Stack Lead Developer */}
           <div className="bg-gray-900 p-8 rounded-lg shadow-lg border-l-8 border-blue-500">
             <h3 className="text-2xl font-semibold text-white">MERN Stack Lead Developer</h3>
-            <p className="text-gray-400 mt-2">📍 Location: Remote | 🕒 Full-time</p>
+            <p className="text-gray-400 mt-2">📍 Location: Hyderabad | 🕒 Full-time</p>
             <p className="text-gray-300 mt-4 leading-relaxed">
               We are hiring an experienced <span className="text-blue-400 font-semibold">MERN Stack Lead</span> 
               with <span className="text-blue-400 font-semibold">4+ years</span> of expertise in building scalable web applications. 
