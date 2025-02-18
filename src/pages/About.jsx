@@ -35,7 +35,7 @@ const About = () => {
             Our Values
           </h2>
           <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
+            {[ 
               { icon: "🔗", title: "Connection", desc: "We believe in the power of connection. Every interaction on Busitron is an opportunity to forge meaningful relationships." },
               { icon: "🤝", title: "Collaboration", desc: "Collaboration is at the heart of our community. We encourage businesses to work together and share ideas." },
               { icon: "🚀", title: "Innovation", desc: "We embrace innovation as a catalyst for progress, empowering businesses to adapt and thrive." },
@@ -63,8 +63,36 @@ const About = () => {
           <p className="text-gray-300 mt-4 leading-relaxed">
             Busitron's strength lies in its diverse and vibrant community. We host 
             businesses from various industries, backgrounds, and regions, creating 
-            a rich tapestry of opportunities.
+            a rich tapestry of opportunities. Together, we create a culture of innovation, collaboration, and mutual success.
           </p>
+        </div>
+
+        {/* Our Vision for the Future Section */}
+        <div>
+          <h2 className="text-3xl font-semibold border-l-8 border-blue-500 pl-6">
+            Our Vision for the Future
+          </h2>
+          <p className="text-gray-300 mt-4 leading-relaxed">
+            At Busitron, our future vision is clear — to become the leading global platform for business growth, enabling companies
+            of all sizes to thrive in an interconnected world. We are focused on expanding our capabilities to offer even greater
+            resources, tools, and opportunities to our members, all while staying true to our core values of collaboration, 
+            innovation, and integrity. Our aim is to be a catalyst for transformation in the global business landscape.
+          </p>
+        </div>
+
+        {/* Join Us Section */}
+        <div>
+          <h2 className="text-3xl font-semibold border-l-8 border-blue-500 pl-6">
+            Join Us
+          </h2>
+          <p className="text-gray-300 mt-4 leading-relaxed">
+            Are you ready to be part of a dynamic community that is revolutionizing the way businesses grow and collaborate?
+            Join <span className="text-blue-400 font-semibold">Busitron</span> today, and start forging meaningful connections,
+            discovering new opportunities, and expanding your business horizons. Together, we can achieve greater success!
+          </p>
+          <div className="mt-6">
+         
+          </div>
         </div>
       </div>
     </div>
