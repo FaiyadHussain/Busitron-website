@@ -1,8 +1,9 @@
 import { FaEnvelope, FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10 px-6">
+    <footer className="bg-black  text-white py-10 px-6">
       <hr className="border-t border-gray-700 mb-8" />
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
 
@@ -21,9 +22,9 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Important Links</h3>
           <ul className="text-gray-400 space-y-2">
-            <li><a href="#" className="hover:text-yellow-400">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-yellow-400">Refund Policy</a></li>
-            <li><a href="#" className="hover:text-yellow-400">Terms of Service</a></li>
+           <Link to="/privacy-policy"> <li><a href="#" className="hover:text-yellow-400">Privacy Policy</a></li></Link>
+           <Link to="/refund-policy"> <li><a href="#" className="hover:text-yellow-400">Refund Policy</a></li></Link>
+            <Link to="/terms-of-service"><li><a href="#" className="hover:text-yellow-400">Terms of Service</a></li></Link>
           </ul>
         </div>
 

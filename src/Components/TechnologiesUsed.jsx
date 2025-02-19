@@ -1,25 +1,50 @@
 import { motion } from "framer-motion";
+import image1 from "../assets/HTML.webp";
+import image2 from "../assets/css.webp";
+import image3 from "../assets/JAVASCRIPT.png";
+import image4 from "../assets/TailwindCSS.webp";
+
+import image5 from "../assets/react.svg";
+import image6 from "../assets/Nextjs.webp";
+import image7 from "../assets/NODEJS.webp";
+import image8 from "../assets/Express.svg";
+import image9 from "../assets/mongodb.webp";
+import image10 from "../assets/AWS.png";
+import image11 from "../assets/Postgres.png";
+import image12 from "../assets/GIT.png";
+import backgroundImage from "../assets/background.jpeg"; // Import the background image
 
 export default function TechLogos() {
   const technologies = [
-    { name: "HTML", img: "https://wallpapercave.com/wp/wp10869912.jpg" },
-    { name: "CSS", img: "https://wallpapercave.com/wp/wp14445334.png" },
-    { name: "JavaScript", img: "https://wallpapercave.com/wp/wp12454867.png" },
-    { name: "Tailwind CSS", img: "https://wallpapercave.com/wp/wp13639446.jpg" },
-    { name: "React", img: "https://wallpapercave.com/wp/wp2465923.jpg" },
-    { name: "Next.js", img: "https://wallpapercave.com/wp/wp11846997.png" },
-    { name: "Node.js", img: "https://wallpapercave.com/wp/wp4923978.jpg" },
-    { name: "Express.js", img: "https://icon.icepanel.io/Technology/svg/Express.svg" },
-    { name: "MongoDB", img: "https://wallpapercave.com/wp/wp8725088.jpg" },
+    { name: "HTML", img: image1 },
+    { name: "CSS", img: image2 },
+    { name: "JavaScript", img: image3 },
+    { name: "Tailwind CSS", img: image4 },
+    { name: "React", img: image5 },
+    { name: "Next.js", img: image6 },
+    { name: "Node.js", img: image7 },
+    { name: "Express.js", img: image8 },
+    { name: "MongoDB", img: image9 },
+    { name: "AWS", img: image10 },
+    { name: "PostgreSQL", img: image11 },
+    { name: "Git", img: image12 },
   ];
 
   return (
-    <div className="relative bg-black text-white py-20 px-6 lg:px-24 flex flex-col items-center overflow-hidden">
-      {/* Background Parallax Effect */}
+    <div 
+      className="relative bg-black text-white py-20 px-6 lg:px-24 flex flex-col items-center overflow-hidden"
+      style={{
+        backgroundImage: `url(${backgroundImage})`, // Set background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Background Overlay */}
       <motion.div
-        className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3785927/pexels-photo-3785927.jpeg?auto=compress&cs=tinysrgb&w=600')] bg-cover bg-fixed opacity-10"
+        className="absolute inset-0 bg-black opacity-40"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.2 }}
+        animate={{ opacity: 0.4 }}
         transition={{ duration: 1.5 }}
       />
 

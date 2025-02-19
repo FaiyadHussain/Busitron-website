@@ -1,6 +1,13 @@
-import React from "react";
-
+import React , { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const ContactUs = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+
   return (
     <div className="min-h-screen mt-12 bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white px-8 py-16 flex items-center justify-center">
       <div className="max-w-4xl w-full space-y-12">

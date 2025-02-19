@@ -1,5 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import image1 from "../assets/bussiness-growth.jpg"
+import image2 from "../assets/Innovation & Tech.avif"
+import image3 from "../assets/Team Collaboration.avif"
 
 const AboutBusitron = () => {
   return (
@@ -53,7 +56,7 @@ const AboutBusitron = () => {
           {/* Image 1 */}
           <div className="relative group overflow-hidden rounded-lg shadow-lg">
             <img
-              src="https://img.freepik.com/premium-photo/flowers-surrounding-computer-with-financial-statistics-charts-empty-office-stylish-space-c_482257-2532.jpg?ga=GA1.1.1507168917.1736320104&semt=ais_hybrid"
+              src={image1}
               alt="Business Meeting"
               className="w-full h-60 object-cover transition-all duration-500 group-hover:blur-md"
             />
@@ -67,8 +70,7 @@ const AboutBusitron = () => {
           {/* Image 2 */}
           <div className="relative group overflow-hidden rounded-lg shadow-lg">
             <img
-              src="https://img.freepik.com/free-photo/male-suit-with-virtual-reality-glasses-his-head-working-virtual-financial-world_613910-306.jpg?ga=GA1.1.1507168917.1736320104&semt=ais_hybrid"
-              alt="Modern Workplace"
+              src={image2}
               className="w-full h-60 object-cover transition-all duration-500 group-hover:blur-md"
             />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -81,7 +83,7 @@ const AboutBusitron = () => {
           {/* Image 3 */}
           <div className="relative group overflow-hidden rounded-lg shadow-lg">
             <img
-              src="https://img.freepik.com/free-photo/young-team-leader-big-corporation-briefing-coworkers-pointing-graph-meeting-corporate-staff_482257-4169.jpg?ga=GA1.1.1507168917.1736320104&semt=ais_hybrid"
+              src={image3}
               alt="Digital Collaboration"
               className="w-full h-60 object-cover transition-all duration-500 group-hover:blur-md"
             />

@@ -1,6 +1,15 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const WhatWeDo = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+
   return (
     <div className="min-h-screen mt-12 bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white px-8 py-16 flex items-center justify-center">
       <div className="max-w-6xl w-full space-y-12">
